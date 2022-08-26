@@ -1,0 +1,65 @@
+1)try out event listening same as our session lab.
+2) Write a JavaScript program to get the length of a JavaScript object. 
+Sample object :
+var student = {
+name : "rohit sharma",
+sclass : "VI",
+rollno : 12 };
+sol:Object.objsize = function(Myobj) {
+    var osize = 0, key;
+    for (key in Myobj) {
+        if (Myobj.hasOwnProperty(key)) osize++;
+    }
+    return osize;
+};
+
+var student = { 
+name : "David Rayy", 
+sclass : "VI", 
+rollno : 12 };
+
+var objsize = Object.objsize(student);
+console.log('Size of the current object : '+objsize);
+
+3)Define a function called cleanNames that accepts an array of strings containing additional space characters at the beginning and end. The cleanNames() function should use the array map method to return a new array full of trimmed names.
+ For example:
+cleanNames([" avengers", "   captain_america", "ironman   ", " black panther   "]) 
+should give
+["avengers", "captain_america", "ironman", "black panther"]
+
+sol:function cleanNames(arr){
+  return arr.map(name => name.trim())
+}
+
+4)try out same examples of asynchronous programmin which is used in labs.
+sol
+
+5)Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array. 
+Test Data :
+console.log(first([7, 9, 0, -2]));
+console.log(first([],3));
+console.log(first([7, 9, 0, -2],3));
+console.log(first([7, 9, 0, -2],6));
+console.log(first([7, 9, 0, -2],-3));
+Expected Output :
+7
+[]
+[7, 9, 0]
+[7, 9, 0, -2]
+[]
+
+sol:var first =  function(array, n) {
+      if (array == null) 
+      return void 0;
+    if (n == null) 
+      return array[0];
+    if (n < 0)
+      return [];
+    return array.slice(0, n);
+  };
+
+console.log(first([7, 9, 0, -2]));
+console.log(first([],3));
+console.log(first([7, 9, 0, -2],3));
+console.log(first([7, 9, 0, -2],6));
+console.log(first([7, 9, 0, -2],-3));

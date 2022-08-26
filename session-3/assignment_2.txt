@@ -1,0 +1,165 @@
+1)Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even, and display a message to the screen. 
+Sample Output :
+"0 is even"
+"1 is odd"
+"2 is even"
+sol:for (var x=0; x<=15; x++) {
+        if (x === 0) {
+                console.log(x +  " is even");
+        }
+        else if (x % 2 === 0) {
+                console.log(x + " is even");   
+        }
+        else {
+                console.log(x + " is odd");
+        }
+}
+
+2)Write a JavaScript conditional statement to find the sign of product of three numbers. Display an alert box with the specified sign.
+Sample numbers : 3, -7, 2
+Output : The sign is -
+
+sol:var x=3;
+var y=-7;
+var z=2;
+if (x>0 && y>0 && z>0)
+{
+       alert("The sign is +");
+}
+else if (x<0 && y<0 && z<0)
+        {
+          console.log("The sign is -");
+        }
+        else if (x>0 && y<0 && z<0)
+        {
+          console.log("The sign is +");
+        }
+        else if (x<0 && y>0 && z<0)
+        {
+          console.log("The sign is +");
+        }
+        else
+        {
+          console.log("The sign is -");
+        }
+
+# 2)function & arrow
+
+3)Write a JavaScript function to find longest substring in a given a string without repeating characters
+
+sol:function longest_substring_without_repeating_characters(input) {
+var chars = input.split('');
+var curr_char;
+var str = "";
+var longest_string = "";
+var hash = {};
+for (var i = 0; i < chars.length; i++) {
+curr_char = chars[i];
+if (!hash[chars[i]]) 
+{ 
+str += curr_char; 
+hash[chars[i]] = {index:i};
+}
+else 
+{
+if(longest_string.length <= str.length)
+{
+longest_string = str;
+}
+var prev_dupeIndex = hash[curr_char].index;
+var str_FromPrevDupe = input.substring(prev_dupeIndex + 1, i);
+str = str_FromPrevDupe + curr_char;
+hash = {};
+for (var j = prev_dupeIndex + 1; j <= i; j++) {
+hash[input.charAt(j)] = {index:j};
+}
+}
+}
+return longest_string.length > str.length ? longest_string : str;
+}
+console.log(longest_substring_without_repeating_characters("google.com")); 
+
+console.log(longest_substring_without_repeating_characters("example.com")); 
+
+
+4)Write an arrow function named arrayAverage that accepts an array of numbers and returns the average of those numbers.
+sol:const arrayAverage = (arr) => {
+  let total = 0;
+  for(let number of arr){
+    total += number;
+  }
+  return total/arr.length;
+}
+ 
+let ar = [1, 2, 3, 4, 5, 6];
+console.log(arrayAverage(ar));
+
+
+5)Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "hello" instead of the number and for the multiples of five print "Buddy". For numbers which are multiples of both three and five print "hellobuddy". 
+
+sol:for ( var i = 1; i <= 100; i++ )
+{
+  if ( i%3 === 0 && i%5 === 0 )
+  {
+    console.log( i + " hello" );
+  }
+  else if ( i%3 === 0 ) 
+  {
+    console.log(i+ " hello" );
+  }
+  else if ( i%5 === 0 ) 
+  {
+    console.log(i+ " Buddy" );
+  }
+  else
+  {
+    console.log(i);
+  }
+}
+
+
+
+6)i)create a Car class and make a constructor of model and make 
+ii)make a start() function and print  'vroom' in console
+iii)make a toString() function and print make and model object through lietrals in console
+iv)extend car in sportscar and create new object which will be turbocharged
+v)make a start() function in supercar and print  'vrooom' in console
+vi)from car class run start function 
+vii)from supercar class run start function 
+
+sol:class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+  
+  start() {
+    console.log('vroom');
+  }
+  
+  toString() {
+    console.log(`Car - ${this.make} - ${this.model}`);
+  }
+}
+
+class SportsCar extends Car {
+  constructor(make, model, turbocharged) {
+    super(make, model);
+    this.turbocharged = turbocharged;
+  }
+  
+  start() {
+    console.log('VROOOOM');
+  }
+}
+
+
+// Actual usage remains the same
+var car = new Car('Nissan', 'Sunny');
+car.start(); // vroom
+console.log(car.make); // Nissan
+
+var sportsCar = new SportsCar('Subaru', 'BRZ', true);
+sportsCar.start(); // VROOOOM
+console.log(car.turbocharged); // true
+
